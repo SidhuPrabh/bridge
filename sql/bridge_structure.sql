@@ -2,12 +2,15 @@ CREATE DATABASE bridge;
 
 DROP DATABASE bridge;
 DROP TABLE `cities`;
+DROP TABLE `professionals`;
+DROP TABLE `categories`;
 
-CREATE TABLE catagories (
+CREATE TABLE categories (
 id int PRIMARY KEY AUTO_INCREMENT,
-catagory varchar(255) NOT NULL
+category varchar(255) NOT NULL
 );
-
+ALTER TABLE professionals CHANGE webiste website varchar(150);
+ALTER TABLE professionals CHANGE webiste website varchar(150);
 CREATE TABLE  professionals(
 id int PRIMARY KEY auto_increment NOT NULL,
 businessName varchar(255) NOT NULL,
@@ -19,7 +22,7 @@ email varchar(255) NOT NULL,
 `pwd` varchar(50) NOT NULL,
 phone varchar(30) NOT NULL,
 personOfContact varchar(255),
-webiste text,
+website text,
 instagram text,
 facebook text,
 youtube text,
@@ -27,6 +30,15 @@ noOfContractsGot int,
 `isActive` bool
 );
 
+Drop table catPro;
+
+Create table catPro (
+id int PRIMARY KEY auto_increment NOT NULL,
+catId int,
+ Foreign Key (catId) REFERENCES categories(id),
+proId int,
+Foreign Key (proId) REFERENCES professionals(id)
+);
 CREATE TABLE `clients`(
 id int PRIMARY KEY auto_increment NOT NULL,
 `name` varchar(255) NOT NULL,
@@ -111,3 +123,6 @@ CREATE TABLE `status`(
 id int PRIMARY KEY,
 `status` varchar(15)
 );
+
+SET SQL_SAFE_UPDATES = 0;
+SET SQL_SAFE_UPDATES = 0;

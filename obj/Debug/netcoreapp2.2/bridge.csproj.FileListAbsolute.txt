@@ -28,3 +28,4 @@ E:\Projects\bridge\obj\Debug\netcoreapp2.2\bridge.Views.pdb
 E:\Projects\bridge\obj\Debug\netcoreapp2.2\bridge.dll
 E:\Projects\bridge\obj\Debug\netcoreapp2.2\bridge.pdb
 E:\Projects\bridge\obj\Debug\netcoreapp2.2\bridge.csproj.CopyComplete
+E:\Projects\bridge\obj\Debug\netcoreapp2.2\Razor\Views\Home\Search.g.cshtml.cs

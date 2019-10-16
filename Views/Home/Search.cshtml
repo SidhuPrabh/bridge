@@ -1,0 +1,37 @@
+@{
+    List<bridge.Models.Professionals.Professional> ProList = (List<bridge.Models.Professionals.Professional>) ViewData["ProList"];
+    string categorySearched = (string) ViewData["CategorySearched"];
+}
+<div style="height:40px"></div>
+<div >
+    <div class="row justify-content-center"><h4> @categorySearched professionals in your area </h4></div>
+</div>
+
+<div style="height:40px"></div>
+
+<div class="container">
+@foreach (var pro in ProList)
+{
+    <div class="row justify-content-center p-3 mb-2 bg-light text-dark shadow-sm p-3 mb-5 rounded">
+            <div class="col-sm-2 my-auto">
+                <img src= "@pro.logoURL" class="img-thumbnail" alt="logo" style="width:50px; height:50px"/>
+            </div>
+            <div class="col-sm-3 my-auto">
+                <h5>@pro.businessName</h5>
+            </div>
+            <div class="col-sm-3 my-auto">
+                @pro.address
+            </div>
+            <div class="col-sm-2 my-auto">
+                <a href="">Get Quote</a>
+            </div>
+            <div class="col-sm-2 my-auto">
+                <div>
+               <div class="col-sm-12"><a href="@pro.website"><input type="button" class="btn btn-primary btn-sm container" value="Visit Website"></a></div>
+               <div style="height:3px"></div>
+               <div class="col-sm-12"><a href=""><input type="button" class="btn btn-primary btn-sm container" value="View Profile"></a></div>
+                </div>
+            </div>
+    </div>
+}
+</div>

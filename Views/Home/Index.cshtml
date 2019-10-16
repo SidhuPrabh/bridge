@@ -11,19 +11,21 @@
                     <h4 class="font-main font-grey"> Start your search below</h4>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-sm-4 px-0">
+        <form action="\home\search" method="get">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 px-0">
                 <input type="text" class="form-control" placeholder="Search the profession" name="txtPro">
+                </div>
+                <div class="col-sm-2 px-0">
+                    <select name="selectedCity" class="custom-select">
+                        <option selected>City</option>
+                        @foreach(var item in CityList)
+                        {
+                            <option value="@item.city">@item.city</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-2 px-0"><input type="submit" class="btn btn-primary" value="search"></div>
             </div>
-            <div class="col-sm-2 px-0">
-                <select name="city" class="custom-select">
-                    <option selected>City</option>
-                    @foreach(var item in CityList)
-                    {
-                        <option value="@item.cityID">@item.city</option>
-                    }
-                </select>
-            </div>
-            <div class="col-sm-2 px-0"><input type="submit" class="btn btn-primary" value="search"></div>
-    </div>
+        </form>
 </div>

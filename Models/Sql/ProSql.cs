@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using bridge.Models.Professionals;
 using MySql.Data.MySqlClient;
 
@@ -68,6 +69,40 @@ namespace bridge.Models.Sql
             }
             con.Close();
             return p;
+        }
+
+        public List<Professional> GetProListByCategoryFromDB(string txtPro, string selectedCity)
+        {
+            MySqlConnection con = this.CreateConnection();
+            string cmdText = $"SELECT DISTINCT * from `professionals` join `catPro` on professionals.id = catPro.proId join `categories` on catPro.catId = categories.id where categories.category like '{txtPro}' and professionals.city = '{selectedCity}' GROUP BY `businessName`;";
+            MySqlCommand cmd = new MySqlCommand(cmdText, con);
+            var result = cmd.ExecuteReader();
+            List<Professional> ProList = new List<Professional>();
+
+            while(result.Read())
+            {
+                Professional p = new Professional();
+                p.id = Convert.ToUInt32(result["id"]);
+                p.businessName = result["businessName"].ToString();
+                p.logoURL = result["logoURL"].ToString();
+                p.address = result["address"].ToString();
+                p.city = result["city"].ToString();
+                p.postcode = result["postcode"].ToString();
+                p.email = result["email"].ToString();
+                p.pwd = result["pwd"].ToString();
+                p.phone = result["phone"].ToString();
+                p.personOfContact = result["personOfContact"].ToString();
+                p.website = result["website"].ToString();
+                p.instagram = result["instagram"].ToString();
+                p.youtube = result["youtube"].ToString();
+                p.facebook = result["facebook"].ToString();
+                p.noOfContractsGot = result["noofContractsGot"].ToString();
+                //p.dateCreated = result["dateCreated"].ToString();
+                p.isActive = Convert.ToBoolean(result["isActive"]);
+                ProList.Add(p);
+            }
+            con.Close();
+            return ProList;
         }
 
         public void DeactivateClientToDB(Professional pro)
