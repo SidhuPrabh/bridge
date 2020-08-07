@@ -74,7 +74,7 @@ namespace bridge.Models.Sql
         public List<Professional> GetProListByCategoryFromDB(string txtPro, string selectedCity)
         {
             MySqlConnection con = this.CreateConnection();
-            string cmdText = $"SELECT DISTINCT * from `professionals` join `catPro` on professionals.id = catPro.proId join `categories` on catPro.catId = categories.id where categories.category like '{txtPro}' and professionals.city = '{selectedCity}' GROUP BY `businessName`;";
+            string cmdText = $"SELECT DISTINCT * from `professionals` join `catPro` on professionals.id = catPro.proId join `categories` on catPro.catId = categories.id where categories.category like '{txtPro}' and professionals.city = '{selectedCity}';";
             MySqlCommand cmd = new MySqlCommand(cmdText, con);
             var result = cmd.ExecuteReader();
             List<Professional> ProList = new List<Professional>();

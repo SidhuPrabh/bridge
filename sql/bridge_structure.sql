@@ -39,6 +39,7 @@ catId int,
 proId int,
 Foreign Key (proId) REFERENCES professionals(id)
 );
+
 CREATE TABLE `clients`(
 id int PRIMARY KEY auto_increment NOT NULL,
 `name` varchar(255) NOT NULL,

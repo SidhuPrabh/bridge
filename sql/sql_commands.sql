@@ -1,8 +1,8 @@
-INSERT INTO `clients`(`name`, `email`, `address`, `pwd`, `phone`, `marketingEmail`, `active`, `points`) VALUES
-('Prabh', 'prabh@gmail.com', '12345', '98652351423', TRUE, TRUE, 5);
+INSERT INTO `clients`(`name`, `email`, `address`, `pwd`, `phone`, `marketingEmail`, `isActive`, `points`) VALUES
+('Prabh', 'prabh@gmail.com','Winnipeg', '12345', '98652351423', TRUE, TRUE, 5);
 
 INSERT INTO `professionals` (businessName, logoURL, address, city, postcode, email, pwd, phone,
-personOfContact, webiste, instagram, facebook, youtube, noOfContractsGot, `isActive`) VALUES
+personOfContact, website, instagram, facebook, youtube, noOfContractsGot, `isActive`) VALUES
 ('Prabh Photography', 'abc/asads', 'Tupelo','Winnipeg', 'R2K 3S2', 'prabh@gmail.com', '12345', '2049856352',
 'Prabh', 'prabhsidhu.ca', 'insta', 'facebook', 'youtube', '5', TRUE );
 

@@ -7,7 +7,7 @@ namespace bridge.Models.Sql
     {
         protected MySqlConnection CreateConnection()
         {
-            string connection = "server=localhost;database=bridge;user=root;password=root;port=3306";
+            string connection = "server=localhost;database=bridge;user=ps;password=root;port=3306";
             MySqlConnection con = new MySqlConnection(connection);
             try
             {
